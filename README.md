@@ -86,7 +86,7 @@ See [docs/hypothesis.md](docs/hypothesis.md)
 ## Getting Started
 
 ```bash
-git clone https://github.com/yourusername/animus
+git clone https://github.com/theoldsouldev/Animus
 cd animus
 ./scripts/setup.sh
 python experiments/identity_divergence/run.py
