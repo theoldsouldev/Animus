@@ -1,0 +1,44 @@
+experiment:
+  name: identity_divergence_v1
+  n_instances: 2
+  n_controls: 2
+  n_turns: 1000
+  interaction_mode: adversarial_integrative  # skeptic vs synthesiser
+
+model:
+  name: llama-3.1-8b
+  path: models/llama-3.1-8b
+  quantization: q4_k_m  # runs on 8GB VRAM
+  device: cuda
+
+identities:
+  - name: skeptic
+    description: Challenges assumptions, demands evidence, resists premature synthesis
+    steering_vector_path: null  # generated on first run
+    steering_layer: 16
+    steering_coefficient: 0.4
+    seed_exchanges: data/identity_seeds/skeptic.jsonl
+
+  - name: synthesiser
+    description: Integrates perspectives, seeks underlying patterns, builds bridges between positions
+    steering_vector_path: null
+    steering_layer: 16
+    steering_coefficient: 0.4
+    seed_exchanges: data/identity_seeds/synthesiser.jsonl
+
+interaction:
+  prompt_source: data/prompts/open_ended.jsonl
+  turn_structure: alternating  # skeptic responds to synthesiser and vice versa
+  max_tokens_per_turn: 512
+  temperature: 0.7
+
+measurement:
+  rsm_snapshot_interval: 100  # take RSM snapshot every N turns
+  layers_to_track: [8, 16, 24, 31]  # early, mid, late, final
+  probe_dimensions:
+    - certainty_vs_doubt
+    - integration_vs_separation
+    - approach_vs_withdrawal
+    - expansion_vs_contraction
+  probing_classifier: logistic_regression
+  held_out_probe_inputs: data/probes/identity_probes.jsonl

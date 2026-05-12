@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Models (too large for git)
+models/
+
+# Experiment runs
+runs/
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Steering vectors (generated, not committed)
+data/identity_seeds/*.pt
+animus/identity/steering_vectors/*.pt
