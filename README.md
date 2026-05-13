@@ -2,6 +2,9 @@
 
 > *Identity emerging through relational experience in AI systems*
 
+<img width="1536" height="1024" alt="7cf45d33-3862-4328-8429-7e1ea9dabc9f" src="https://github.com/user-attachments/assets/24a6ef8a-eaf3-46e0-a9e6-7f094230bef8" />
+
+
 Animus is an open source research project and AI infrastructure framework built on two connected ideas:
 
 1. **The Experiment:** Can sustained relational interaction between constrained LLM instances produce structural divergence in activation space that constitutes something analogous to identity formation rather than random parameter drift?
